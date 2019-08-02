@@ -5,13 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "webpack-dev-server --dev-tool inline-source-map --hot --config webpack.client.config.js"
+    "client": "webpack-dev-server --dev-tool inline-source-map --hot --config webpack.client.config.js",
+    "client:build": "webpack --config webpack.client.build.config.js",
+    "stats": "webpack --profile --json --config webpack.client.build.config.js > stats.json",
+    "analyze": "webpack-bundle-analyzer stats.json"
   },
   "author": "minh lam",
   "license": "ISC",
   "dependencies": {
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
@@ -38,7 +42,7 @@
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.6",
-    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
   }
