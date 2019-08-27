@@ -3,8 +3,14 @@ import express from "express";
 import compress from "compression";
 import cors from "cors";
 import helmet from "helmet";
-import services from "./services";
+import db from "./database";
+import serviceLoader from "./services";
 
+const util = {
+  db
+};
+
+const services = serviceLoader(util);
 const root = path.join(__dirname, "../../");
 const serviceNames = Object.keys(services);
 const app = express();
